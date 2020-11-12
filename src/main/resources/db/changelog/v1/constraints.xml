@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="CONSTRAINTS-001" author="dmitrenko_ns" >
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_ROLE"
+                                 constraintName="FK-USER_ROLE-USER"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="USER"/>
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="USER_ROLE"
+                                 constraintName="FK-USER_ROLE-ROLE"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ROLE_ID" referencedTableName="ROLE"/>
+        <addForeignKeyConstraint baseColumnNames="USER_STATUS_ID" baseTableName="USER"
+                                 constraintName="FK-USER-USER_STATUS"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_STATUS_ID" referencedTableName="USER_STATUS"/>
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="TASK"
+                                 constraintName="FK-TASK-USER"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="USER_ID" referencedTableName="TASK"/>
+        <addForeignKeyConstraint baseColumnNames="TASK_STATUS_ID" baseTableName="TASK"
+                                 constraintName="FK-TASK-TASK_STATUS"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="TASK_STATUS_ID" referencedTableName="TASK_STATUS"/>
+        <addForeignKeyConstraint baseColumnNames="TASK_SETTINGS_ID" baseTableName="TASK"
+                                 constraintName="FK-TASK-TASK_SETTINGS"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="TASK_SETTINGS_ID" referencedTableName="TASK_SETTINGS"/>
+        <addForeignKeyConstraint baseColumnNames="TASK_FILE_TYPE_ID" baseTableName="TASK_SETTINGS"
+                                 constraintName="FK-TASK_FILE_TYPE-TASK_SETTINGS"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="TASK_FILE_TYPE_ID" referencedTableName="TASK_FILE_TYPE"/>
+        <addForeignKeyConstraint baseColumnNames="DATA_SOURCE_ID" baseTableName="TASK"
+                                 constraintName="FK-TASK-DATA_SOURCE"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATA_SOURCE_ID" referencedTableName="DATA_SOURCE"/>
+        <addForeignKeyConstraint baseColumnNames="DATA_SOURCE_TYPE_ID" baseTableName="DATA_SOURCE"
+                                 constraintName="FK-DATA_SOURCE-DATA_SOURCE_TYPE"
+                                 baseTableSchemaName="REPOSITORY"
+                                 referencedTableSchemaName="REPOSITORY"
+                                 deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="DATA_SOURCE_TYPE_ID" referencedTableName="DATA_SOURCE_TYPE"/>
+
+    </changeSet>
+
+</databaseChangeLog>
