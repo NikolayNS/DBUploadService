@@ -34,7 +34,7 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
 	implementation("org.liquibase:liquibase-core")
-	runtimeOnly("com.h2database:h2")
+	implementation("com.h2database:h2")
 	runtimeOnly("io.r2dbc:r2dbc-h2")
 	runtimeOnly("io.r2dbc:r2dbc-postgresql")
 	runtimeOnly("org.postgresql:postgresql")
