@@ -12,4 +12,6 @@ interface TaskDomainService {
     fun get(id: Long): Mono<Task>
     fun getAllUserTask(userId: Long): Flux<Task>
     fun updateStatus(id: Long, status: TaskStatusEnum): Mono<Task>
+
+    fun findAllByStatus(status: TaskStatusEnum): Flux<Task>
 }

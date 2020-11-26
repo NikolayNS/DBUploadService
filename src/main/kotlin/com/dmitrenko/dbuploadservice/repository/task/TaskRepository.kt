@@ -10,6 +10,8 @@ import com.dmitrenko.dbuploadservice.domain.task.Task
 interface TaskRepository : ReactiveCrudRepository<Task, Long> {
 	fun findAllByUserId(userId: Long): Flux<Task>
 
+	fun findAllByStatusId(statusId: Long): Flux<Task>
+
 	@Modifying
 	@Query("UPDATE REPOSITORY.TASK SET STATUS_ID=:statusId, MODIFIED=CURRENT_TIMESTAMP() WHERE TASK_ID=:id")
 	fun updateStatus(id: Long, statusId: Long): Mono<Long>

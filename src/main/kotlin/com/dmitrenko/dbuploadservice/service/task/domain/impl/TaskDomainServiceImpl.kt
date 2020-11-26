@@ -32,4 +32,7 @@ class TaskDomainServiceImpl(
             repository
                     .updateStatus(id, status.ordinal.toLong())
                     .flatMap { repository.findById(it) }
+
+    override fun findAllByStatus(status: TaskStatusEnum): Flux<Task> =
+            repository.findAllByStatusId(status.ordinal.toLong())
 }

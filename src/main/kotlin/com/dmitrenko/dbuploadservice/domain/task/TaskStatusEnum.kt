@@ -4,7 +4,8 @@ enum class TaskStatusEnum {
 	IDLE,
 	ACTIVE,
 	FINISHED,
-	ERORR;
+	CANCELING,
+	ERROR;
 
 	companion object {
 		fun getStatusByName(name: String) = valueOf(name.toUpperCase())

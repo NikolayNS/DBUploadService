@@ -20,7 +20,6 @@ class TaskSettingsDomainServiceImpl(
             file
                     .zipWith(taskFileDomainService.save(file))
                     .flatMap {tuple ->
-                        print(request)
                         repository.save(
                                 TaskSettings(
                                         TaskFileTypeEnum.getTypeByName(tuple.t1.filename().split(".").last()).ordinal.toLong(),

@@ -1,6 +1,9 @@
 package com.dmitrenko.dbuploadservice.service.task.impl
 
 import com.dmitrenko.dbuploadservice.domain.task.Task
+import com.dmitrenko.dbuploadservice.domain.task.TaskStatusEnum
+import com.dmitrenko.dbuploadservice.domain.task.TaskStatusEnum.CANCELING
+import com.dmitrenko.dbuploadservice.domain.task.TaskStatusEnum.IDLE
 import org.springframework.http.codec.multipart.FilePart
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
@@ -28,9 +31,13 @@ class TaskServiceImpl(
             domainService.get(request.id)
 
     override fun getAllUserTask(request: UserRequest): Flux<Task> =
-        domainService.getAllUserTask(request.id)
+            domainService.getAllUserTask(request.id)
 
-    override fun cancel(request: TaskRequest): Mono<Void> {
-        TODO("Not yet implemented")
-    }
+    override fun cancel(request: TaskRequest): Mono<Boolean> =
+            domainService.updateStatus(request.id, CANCELING)
+                    .thenReturn(true)
+                    .onErrorReturn(false)
+
+    override fun getAllIdleTask(): Flux<Task> =
+            domainService.findAllByStatus(IDLE)
 }

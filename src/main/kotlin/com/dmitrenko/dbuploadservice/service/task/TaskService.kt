@@ -12,5 +12,7 @@ interface TaskService {
     fun add(request: TaskAddRequest, file: Mono<FilePart>): Mono<Task>
     fun get(request: TaskRequest): Mono<Task>
     fun getAllUserTask(request: UserRequest): Flux<Task>
-    fun cancel(request: TaskRequest): Mono<Void>
+    fun cancel(request: TaskRequest): Mono<Boolean>
+
+    fun getAllIdleTask(): Flux<Task>
 }

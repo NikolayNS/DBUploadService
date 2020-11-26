@@ -36,5 +36,5 @@ class TaskController(
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PostMapping(TASK_CANCEL)
-    fun cancel(@RequestBody request: TaskRequest): Mono<Void> = service.cancel(request)
+    fun cancel(@RequestBody request: TaskRequest): Mono<Boolean> = service.cancel(request)
 }
